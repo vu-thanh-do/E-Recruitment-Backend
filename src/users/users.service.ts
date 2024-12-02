@@ -37,6 +37,17 @@ export class UsersService {
       return 'Error: ' + error.message;
     }
   }
+  async findOneEmail(email: string) {
+    try {
+      console.log(email);
+      const userByMail = await this.userModel
+        .findOne({ email })
+        .select('-password');
+      return userByMail;
+    } catch (error) {
+      return 'Error: ' + error.message;
+    }
+  }
 
   update(id: number, updateUserDto: UpdateUserDto) {
     return `This action updates a #${id} user`;

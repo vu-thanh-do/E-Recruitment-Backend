@@ -13,6 +13,5 @@ export class CreateUserDto {
   )
   email: string;
   @IsNotEmpty()
-  @Min(10)
   password: string;
 }
